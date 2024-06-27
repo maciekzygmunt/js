@@ -21,19 +21,20 @@ export default async function NftGallery({
   owner,
   chainId,
 }: { owner: Address; chainId?: number; page?: number }) {
-  const erc721Tokens = await getErc721Tokens({
+  const erc721TokensResult = await getErc721Tokens({
     owner,
     chainIds: chainId ? [Number(chainId)] : SIMPLEHASH_NFT_SUPPORTED_CHAIN_IDS,
     limit: 36,
   });
+  console.log("FETCHED TOKENS", erc721TokensResult.tokens.length);
 
-  if (erc721Tokens.tokens.length === 0) {
+  if (erc721TokensResult.tokens.length === 0) {
     return <NftGalleryEmpty chainId={chainId} />;
   }
 
   return (
     <NftGalleryLayout>
-      {erc721Tokens.tokens.map((token) => (
+      {erc721TokensResult.tokens.map((token) => (
         <NftCard
           key={token.contractAddress + token.tokenId + token.chainId}
           data={token}

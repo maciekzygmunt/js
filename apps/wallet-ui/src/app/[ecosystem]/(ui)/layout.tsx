@@ -34,9 +34,9 @@ export default async function Layout({
           <ConnectButton />
         </div>
       </header>
-      <main className="flex w-full h-full p-4 px-8 mx-auto max-w-7xl">
-        {children}
-      </main>
+      <div className="h-full p-4 px-8">
+        <main className="flex w-full h-full mx-auto max-w-7xl">{children}</main>
+      </div>
     </div>
   );
 }

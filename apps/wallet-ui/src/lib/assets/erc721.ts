@@ -47,7 +47,10 @@ export async function getErc721Tokens({
       accept: "application/json",
       "X-API-KEY": process.env.SIMPLEHASH_API_KEY as string,
     },
-    next: { revalidate: 60 * 15 },
+    next: {
+      revalidate: 60 * 15,
+      tags: chainIds.map((id) => `erc721-${id}-${owner}`),
+    },
   };
 
   const response = await fetch(
