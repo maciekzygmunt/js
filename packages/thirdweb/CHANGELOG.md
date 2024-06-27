@@ -1,5 +1,11 @@
 # thirdweb
 
+## 5.30.1
+
+### Patch Changes
+
+- [#3529](https://github.com/thirdweb-dev/js/pull/3529) [`18c3d3b`](https://github.com/thirdweb-dev/js/commit/18c3d3be9f7065feb556649fecc8a3bb38e295c9) Thanks [@gregfromstl](https://github.com/gregfromstl)! - Do not log auto connect failure "errors"
+
 ## 5.30.0
 
 ### Minor Changes
